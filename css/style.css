@@ -1,0 +1,95 @@
+:root {
+   --clr-neutral-900: hsl(207, 19%, 9%);
+   --clr-neutral-100: hsl(0, 0%, 100%);
+   --clr-neutral-400: hsl(142, 90%, 61%);
+}
+
+*,
+*::before,
+::after {
+   box-sizing: border-box;
+}
+
+body {
+   display: grid;
+   min-height: 100vh;
+   place-items: center;
+   line-height: 1.6;
+   background: #13181c;
+   font-family: sans-serif;
+}
+
+.card{
+   color: var(--clr-neutral-100);
+   background-image: url(../img/card-bg.jpg);
+   background-size: cover;
+   padding: 10rem 0 0;
+   max-width: 35ch;
+   border-radius: 0.5rem;
+   overflow: hidden;
+   transition: transform 500ms ease;
+   transition: background-image 500ms ease
+}
+
+.card:hover{
+   transform: scale(1.05);
+   background-image: url(../img/tamanns.jpg);
+}
+
+.card-content{
+   --padding: 1.5rem;
+   padding: var(--padding);
+   background: linear-gradient(
+      rgba(161, 96, 96, 0),
+      rgba(39, 38, 38, 0.486) 20%,
+      rgba(0, 0, 0, 0.815)
+   );
+   transform: translateY(65%);
+   transition: transform 500ms ease;
+}
+
+.card:hover .card-content{
+   transform: translateY(0)
+}
+
+.card-body {
+   color: rgb(225 225 225 / 0.8);
+}
+
+.card-title{
+   position: relative;
+   width: max-content;
+}
+
+.card-title::after{
+   content: " ";
+   position: absolute;
+   left: calc(var(--padding) * -1);
+   bottom: 0;
+   height: 3px;
+   width: calc(100% + var(--padding));
+   background: var(--clr-neutral-400);
+   transform: scalex(0);
+   transition: transform 500ms ease;
+   transform-origin: left;
+}
+
+.card:hover .card-title::after{
+   transform: scalex(1);
+}
+
+.button{
+   cursor: pointer;
+   display: inline-block;
+   text-decoration: none;
+   background: var(--clr-neutral-400);
+   color: var(--clr-neutral-900);
+   padding: 0.5em 1.25em;
+   border-radius: 0.25rem;
+   transition: background 500ms ease;
+}
+
+.button:hover,
+.button:focus {
+   background: var(--clr-neutral-100)
+}
